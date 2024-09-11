@@ -1,13 +1,16 @@
 import './App.css'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
+import CreatePost from './pages/CreatPost/CreatePost'
 
 function App() {
   return (
     <>
       <div>
         <NavBar />
+        <CreatePost />
         <Footer />
+  
       </div>
     </>
   )
