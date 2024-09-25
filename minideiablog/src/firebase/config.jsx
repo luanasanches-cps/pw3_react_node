@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
 import { getFireStore } from "firebase/firestore"
 const firebaseConfig = {
-  apiKey: "AIzaSyCzvetyzpLnlV6-4duZfRuskmiDnEBcHMU",
-  authDomain: "miniblog-icoma.firebaseapp.com",
-  projectId: "miniblog-icoma",
-  storageBucket: "miniblog-icoma.appspot.com",
-  messagingSenderId: "643979843568",
-  appId: "1:643979843568:web:94507c223cddc1cd20ef35",
-  measurementId: "G-005V8EV8BX"
+  apiKey: "AIzaSyAbcFcy28g-YLWGg9Ls_xltarqNGokRpvU",
+  authDomain: "miniblog-pauli.firebaseapp.com",
+  projectId: "miniblog-pauli",
+  storageBucket: "miniblog-pauli.appspot.com",
+  messagingSenderId: "521500036510",
+  appId: "1:521500036510:web:b2a7b6b41c01d03d0fda8f",
+  measurementId: "G-00VGGC4PNE"
 };
 const app = initializeApp(firebaseConfig)
 const analytics = getAnalytics(app)
