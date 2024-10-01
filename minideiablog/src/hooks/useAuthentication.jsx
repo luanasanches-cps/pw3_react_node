@@ -1,14 +1,13 @@
-import { db } from "../firebase"
+import { db } from './../firebase/config'
 import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    uploadProfile,
+    updateProfile,
     signOut
 } from 'firebase/auth'
 import { useState, useEffect } from 'react'
 
-//constante que vai receber uma função
 export const useAuthentication = () => {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(null)
@@ -50,10 +49,11 @@ export const useAuthentication = () => {
             if (error.message.includes('Password')) {
                 systemErrorMessage = 'A senha precisa conter ao menos 6 caracteres.'
             } else if (error.message.includes('email-already')) {
-                systemErrorMessage = 'Este e-mail já existe em nossos sistemas.'
+                systemErrorMessage = 'Este e-mail já existe em nossos sistemas'
             } else {
                 systemErrorMessage = 'Tente mais tarde, nosso sistema está indisponível.'
             }
+
             setLoading(false)
             setError(systemErrorMessage)
         }
@@ -72,16 +72,16 @@ export const useAuthentication = () => {
                 data.password
             )
             setLoading(false)
-        } catch (erro) {
+        } catch (error) {
             console.error(error.message)
             console.table(typeof error.message)
 
             let systemErrorMessage
 
             if (error.message.includes('invalid-login-credentials')) {
-                systemErrorMessage = 'Este usuário não existe em nosso sistema'
+                systemErrorMessage = 'Este usuário não existe em nosso sistemas.'
             } else if (error.message.includes('wrong-password')) {
-                systemErrorMessage = 'Há algum erro com suas credenciais'
+                systemErrorMessage = 'Há algum erro com suas informações'
             } else {
                 systemErrorMessage = 'Tente mais tarde, nosso sistema está indisponível.'
             }
@@ -91,16 +91,16 @@ export const useAuthentication = () => {
         }
     }
 
-    const logout = () => {
+    const logout = () =>{
         checkIsCancelled()
         signOut(auth)
     }
 
-    useInsertionEffect(() => {
-        return () => setCancelled(true) 
+    useEffect(() =>{
+        return () => setCancelled(true)
     }, [])
 
-    return{
+    return {
         auth,
         createUser,
         error,
